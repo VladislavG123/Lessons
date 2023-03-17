@@ -1,5 +1,9 @@
 ﻿using Lesson3;
 
-var departments = DataGenerator.Generate();
+var employees = DataGenerator.GenerateEmployees();
+var departments = DataGenerator.GenerateDepartments();
+
+
+Console.Read();
 
 

@@ -5,8 +5,8 @@ namespace Lesson3;
 public static class DataGenerator
 {
     private static Faker _faker = new Faker("en");
-    
-    public static List<Department> Generate()
+
+    public static List<Employee> GenerateEmployees()
     {
         var employees = new List<Employee>();
         
@@ -24,6 +24,11 @@ public static class DataGenerator
             });
         }
 
+        return employees;
+    }
+
+    public static List<Department> GenerateDepartments()
+    {
         var departments = new List<Department>();
         
         for (int i = 0; i < 3; i++)
@@ -31,7 +36,7 @@ public static class DataGenerator
             departments.Add(new Department
             {
                 Name = _faker.Company.CompanyName(),
-                Employees = employees.Skip(i * 33).Take(33).ToList()
+                Employees = GenerateEmployees().Skip(i * 33).Take(33).ToList()
             });
         }
 
